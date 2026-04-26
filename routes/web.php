@@ -10,16 +10,14 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
 });
 
-<<<<<<< HEAD
-=======
+ HEAD
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
-});
->>>>>>> 7e4018f889355699bf3a4997af914622af480ae6
+ registrasi
 
-Route::get('/logout', function () {
-    Auth::logout();
-    request()->session()->invalidate();
-    request()->session()->regenerateToken();
-    return redirect('/login');
 });
+ 7e4018f889355699bf3a4997af914622af480ae6
+ main
+
+   Route::post('logout', [AuthController::class, 'logout'])->name('logout'); 
+}); 

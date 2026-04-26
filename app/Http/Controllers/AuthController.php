@@ -9,6 +9,10 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    // ─────────────────────────────────────────
+    //  LOGIN
+    // ─────────────────────────────────────────
+
     public function showLogin()
     {
         if (Auth::check()) {
@@ -37,6 +41,24 @@ class AuthController extends Controller
             ->withErrors(['email' => 'Username atau password salah.']);
     }
 
+    // ─────────────────────────────────────────
+    //  LOGOUT
+    // ─────────────────────────────────────────
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login')
+            ->with('status', 'Kamu berhasil keluar dari sistem.');
+    }
+    // ─────────────────────────────────────────
+    //  REGISTER
+    // ─────────────────────────────────────────
+
     public function showRegister()
     {
         if (Auth::check()) {
@@ -54,9 +76,10 @@ class AuthController extends Controller
             'password'   => 'required|string|min:8|confirmed',
         ], [
             'first_name.required' => 'Nama depan wajib diisi.',
+            'first_name.max'      => 'Nama depan maksimal 100 karakter.',
             'email.required'      => 'Email wajib diisi.',
             'email.email'         => 'Format email tidak valid.',
-            'email.unique'        => 'Email sudah terdaftar.',
+            'email.unique'        => 'Email sudah terdaftar, gunakan email lain.',
             'password.required'   => 'Password wajib diisi.',
             'password.min'        => 'Password minimal 8 karakter.',
             'password.confirmed'  => 'Konfirmasi password tidak cocok.',
@@ -68,10 +91,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        Auth::login($user);
-        $request->session()->regenerate();
-
-        return redirect()->route('dashboard')
-        ->with('status', 'Akun berhasil dibuat. Selamat datang, ' . $user->name . '!');
+        return redirect()->route('login')
+            ->with('status', 'Akun berhasil dibuat! Silakan login.');
     }
 }

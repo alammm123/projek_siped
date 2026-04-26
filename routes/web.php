@@ -10,12 +10,10 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
 });
 
-<<<<<<< HEAD
-=======
+
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
 });
->>>>>>> 7e4018f889355699bf3a4997af914622af480ae6
 
 Route::get('/logout', function () {
     Auth::logout();

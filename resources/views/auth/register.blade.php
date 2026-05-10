@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Register — Sistem Informasi</title>
+    <title>Register — Sistem Pengajuan Dokumen</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -514,7 +514,7 @@
     <div class="header-bar">
         <div class="header-logo">🎓</div>
         <div class="header-text">
-            <h1>Sistem Informasi Akademik</h1>
+            <h1>Sistem Pengajuan Dokumen</h1>
             <p>Portal Terpadu Mahasiswa &amp; Dosen</p>
         </div>
     </div>
@@ -529,7 +529,7 @@
                 <span class="info-tag">Pendaftaran Akun</span>
                 <h3 class="info-heading">Daftarkan Akun Anda Sekarang</h3>
                 <p class="info-text">
-                    Ikuti langkah mudah berikut untuk mendaftarkan akun dan mengakses seluruh layanan sistem informasi.
+                    Ikuti langkah mudah berikut untuk mendaftarkan akun dan mengakses seluruh layanan sistem Pengajuan Dokumen.
                 </p>
                 <div class="info-steps">
                     <div class="step-item">
@@ -741,7 +741,7 @@
     </div>
 
     <div class="page-footer">
-        &copy; {{ date('Y') }} Sistem Informasi Kelompok &mdash; Dibuat dengan Laravel
+        &copy; {{ date('Y') }} Sistem Pengajuan Dokumen Kelompok &mdash; Dibuat dengan Laravel
     </div>
 </div>
 

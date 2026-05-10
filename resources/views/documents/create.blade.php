@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajukan Dokumen — Sistem Informasi</title>
+    <title>Ajukan Dokumen — Sistem Pengajuan Dokumen</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -359,7 +359,7 @@
 <nav class="navbar">
     <div class="nav-brand">
         <div class="nav-logo">🎓</div>
-        <span class="nav-title">Sistem Informasi Akademik</span>
+        <span class="nav-title">Sistem Pengajuan Dokumen</span>
     </div>
     <div class="nav-right">
         <a href="{{ route('documents.index') }}" class="btn-nav">

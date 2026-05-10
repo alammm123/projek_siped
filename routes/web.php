@@ -12,15 +12,14 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
-    
-
+   Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
    Route::post('logout', [AuthController::class, 'logout'])->name('logout'); 
 
-   // Fitur dokumen
-    Route::get('/documents', [DocumentController::class, 'index'])->name('documents.index');
-    Route::get('/documents/create', [DocumentController::class, 'create'])->name('documents.create');
-    Route::post('/documents', [DocumentController::class, 'store'])->name('documents.store');
-    Route::get('/documents/{document}/download', [DocumentController::class, 'download'])->name('documents.download');
+ // Fitur dokumen
+Route::get('/documents',                         [DocumentController::class, 'index'])->name('documents.index');
+Route::get('/documents/create',                  [DocumentController::class, 'create'])->name('documents.create');
+Route::post('/documents',                        [DocumentController::class, 'store'])->name('documents.store');
+Route::get('/documents/{document}',              [DocumentController::class, 'show'])->name('documents.show');        // ← tambah ini
+Route::get('/documents/{document}/download',     [DocumentController::class, 'download'])->name('documents.download');
 }); 
 

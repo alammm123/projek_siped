@@ -81,4 +81,10 @@ class DocumentController extends Controller
             $document->original_filename
         );
     }
+    public function show(Document $document)
+{
+    abort_if($document->user_id !== Auth::id(), 403);
+    $document->load('documentType');
+    return view('documents.show', compact('document'));
+}
 }

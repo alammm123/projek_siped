@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -22,4 +23,11 @@ Route::post('/documents',                        [DocumentController::class, 'st
 Route::get('/documents/{document}',              [DocumentController::class, 'show'])->name('documents.show');        // ← tambah ini
 Route::get('/documents/{document}/download',     [DocumentController::class, 'download'])->name('documents.download');
 }); 
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile',           [ProfileController::class, 'show'])->name('profile.show');
+    Route::patch('/profile',         [ProfileController::class, 'updateProfile'])->name('profile.update');
+    Route::patch('/profile/password',[ProfileController::class, 'updatePassword'])->name('profile.password');
+    Route::patch('/profile/avatar',  [ProfileController::class, 'updateAvatar'])->name('profile.avatar');
+});
 
